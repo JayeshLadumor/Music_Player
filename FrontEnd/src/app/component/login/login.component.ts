@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { FlashMessagesService} from 'angular2-flash-messages';
 import { Router } from '@angular/router';
+import { tokenNotExpired } from 'angular2-jwt';
 
 @Component({
   selector: 'app-login',
@@ -16,8 +17,17 @@ export class LoginComponent implements OnInit {
               private flashMessage:FlashMessagesService) { }
 
   ngOnInit() {
-  }
-
+          if(this.loggedIn())
+              {
+                this.router.navigate(['dashboard']);
+              }
+          else {
+                this.router.navigate(['login']);
+              }
+        }
+loggedIn() {
+        return tokenNotExpired('id_token');
+    }
   onLoginSubmit()
   {
     const user = {
