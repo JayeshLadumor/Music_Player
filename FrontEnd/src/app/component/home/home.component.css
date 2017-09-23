@@ -1,0 +1,10 @@
+h1 {
+  font-family: Sofia;
+  text-align: center;
+  text-shadow: #00aced;
+}
+.content {
+  margin:20px 0px 0px 100px;
+  font-family: Audiowide;
+  font-size:25px;
+}

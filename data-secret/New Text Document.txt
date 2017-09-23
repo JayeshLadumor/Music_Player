@@ -1,0 +1,1 @@
+C:\Program Files\MongoDB\Server\3.2\bin>mongo ds111123.mlab.com:11123/onlinemusicstreaming -u jayeshladumor -p jayesh123
