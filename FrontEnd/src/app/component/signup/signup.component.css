@@ -1,0 +1,32 @@
+.page-header {
+  margin-top: 40px;
+}
+.register_form {
+  margin: 5px;
+}
+.register_form label {
+  color: lightcoral;
+  margin-left: 10px;
+}
+.register_form input {
+  margin-left: 10px;
+  border-radius: 3px;
+  width: 300px;
+}
+
+.register_form .submit_valid {
+  border-radius: 3px;
+  border: 1px solid grey;
+  padding: 5px;
+  width: auto;
+  background-color: #00c2d6;
+  color: white;
+}
+.register_form .submit_invalid {
+  border-radius: 3px;
+  border: 1px solid grey;
+  padding: 5px;
+  width: auto;
+  background-color: #00c2d6;
+  color: lightgrey;
+}

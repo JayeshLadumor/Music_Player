@@ -1,3 +1,12 @@
-<p>
-  profile works!
-</p>
+<div>
+  <!--img src="data:{{baseimg.Type}};base64,{{baseimg.data}}" alt="Some Image"-->
+  <img src=url({{baseimg}}) alt="Some Image">
+  <button md-button class="md-accent" (click)="Add_Image_To_Database()">Click To Upload Image in Database</button>
+</div>
+
+<div class="outerdiv">
+  Role : {{usertype}}<br>
+  Name :{{name}}<br>
+  Username : {{username}}<br>
+  Email Id :{{email}}<br>
+</div>

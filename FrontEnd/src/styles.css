@@ -1,1 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
+.successcustom {
+  width:400px;
+  height:25px;
+  background: green;
+  float:right;
+  padding: 2px;
+}
+.failcustom {
+  width:400px;
+  height:25px;
+  background: red;
+  float:right;
+  padding: 2px;
+}

@@ -1,10 +1,16 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule,ReactiveFormsModule} from "@angular/forms";
+import 'hammerjs';
+
 import {FlashMessagesModule, FlashMessagesService} from 'angular2-flash-messages';
 import {HttpModule} from "@angular/http";
 import {RouterModule,Routes} from '@angular/router';
 import {AuthService} from './services/auth.service';
+import {MdCardModule} from '@angular2-material/card';
+import {MdMenuModule} from '@angular2-material/menu';
+import {MdButtonModule} from '@angular2-material/button';
+import {MdSliderModule} from '@angular2-material/slider';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './component/navbar/navbar.component';
@@ -14,6 +20,8 @@ import { DashboardComponent } from './component/dashboard/dashboard.component';
 import { ProfileComponent } from './component/profile/profile.component';
 import { HomeComponent } from './component/home/home.component';
 import { ContactComponent } from './component/contact/contact.component';
+import { AdmindashboardComponent } from './component/admindashboard/admindashboard.component';
+
 
 const appRoutes: Routes =[
   {path:'',component:HomeComponent},
@@ -21,8 +29,8 @@ const appRoutes: Routes =[
   {path:'login',component:LoginComponent},
   {path:'dashboard',component:DashboardComponent},
   {path:'profile',component:ProfileComponent},
-  {path:'contact',component:ContactComponent}
-
+  {path:'contact',component:ContactComponent},
+  {path:'admindashboard',component:AdmindashboardComponent}
 ]
 
 
@@ -35,7 +43,8 @@ const appRoutes: Routes =[
     DashboardComponent,
     ProfileComponent,
     HomeComponent,
-    ContactComponent
+    ContactComponent,
+    AdmindashboardComponent
   ],
   imports: [
     BrowserModule,
@@ -43,7 +52,11 @@ const appRoutes: Routes =[
     FormsModule,
     HttpModule,
     RouterModule.forRoot(appRoutes),
-    FlashMessagesModule
+    FlashMessagesModule,
+    MdCardModule,
+    MdMenuModule,
+    MdButtonModule,
+    MdSliderModule
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]

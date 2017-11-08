@@ -8,15 +8,21 @@
     "start": "node app"
   },
   "dependencies": {
+    "@material-git/slider": "^2.0.0-git.20160919",
     "bcryptjs": "*",
     "body-parser": "*",
     "cors": "*",
+    "email-check": "^1.1.0",
+    "email-existence": "^0.1.5",
     "express": "*",
     "firebase": "^4.3.0",
     "jsonwebtoken": "*",
+    "kickbox": "^2.0.1",
     "mongoose": "*",
+    "node-lame": "^1.0.4",
     "passport": "*",
-    "passport-jwt": "*"
+    "passport-jwt": "*",
+    "typescript": "^2.5.3"
   },
   "author": "Jayesh Ladumor",
   "license": "ISC"

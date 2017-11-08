@@ -1,3 +1,114 @@
-<p>
-  dashboard works!
-</p>
+
+<div>
+  <div ng-app="myApp">
+    <div ng-controller="mycontroller">
+      <md-card>
+        <md-card-content>
+
+              <audio media-player="audio1" data-playlist="playlist1"></audio>
+                  <div>
+                      <button type="button" ng-click="audio1.prev(true)" ng-class="logoclass"><img src="../../../assets/tango_blue_go_previous.png"></button>
+                      <button type="button" ng-show="audio1.playing" ng-click="mySpecialPlayButton()"><img width="47" height="47" src="../../../assets/audio-158490_640.png"></button>
+                      <button type="button" ng-show="!audio1.playing" ng-click="mySpecialPlayButton()"><img width="47" height="47" src="../../../assets/video-play-xxl.png"></button>
+                      <button type="button" ng-click="audio1.next(true)"><img src="../../../assets/tango_blue_go_next.png"></button>
+                  </div>
+
+                  <br>
+                  <span ng-show="audio1.playing">Player status: Playing</span>
+                  <span ng-show="!audio1.playing">Player status: Paused</span>
+                  <div ng-bind="audio1.currentTrack"></div>
+                  <span>/</span>
+                  <span ng-bind="audio1.tracks"></span>
+                  <span ng-show="audio1.playing">Songs</span><br>
+
+                  <div ng-bind="playlist1[audio1.currentTrack-1].name" ng-class="songname"></div>
+                  <div ng-if="false">
+                    Volume :  <md-slider flex min="0" max="100" ng-model="volumelevel" (change)="myCallbackFunction($event.value)">
+                              </md-slider>
+                    <div ng-bind="volumelevel"></div>
+                  </div>
+
+                    <br>
+                    <br>
+                    <br>
+
+                    <div>
+                        Download Music:
+                        <select ng-model="selectedQuality" ng-options="x for x in names"></select>
+                        <button type="button" ng-click="ConvertDownload()">Download</button>
+                    </div>
+        </md-card-content>
+      </md-card>
+      <div ng-class="mdcardplaylist">
+          <md-card>
+              <md-card-content ng-class="mdcardcontentplaylist" ng-repeat="x in playlist1" ng-click="audio1.playPause($index)">
+                <span ng-bind="x.name" ng-class="spanclass"></span>
+                        </md-card-content>
+                      </md-card>
+                </div>
+
+
+
+    </div>
+
+  </div>
+</div>
+
+<!--div>
+
+<md-card>
+
+  <md-card-content>
+  <div ng-app="myApp">
+    <div ng-controller="mycontroller">
+      <audio media-player="audio1" data-playlist="playlist1"></audio>
+      <div>
+        <button type="button" ng-click="audio1.prev(true)" ng-class="logoclass"><img src="../../../assets/tango_blue_go_previous.png"></button>
+        <button type="button" ng-show="audio1.playing" ng-click="mySpecialPlayButton()"><img width="47" height="47" src="../../../assets/audio-158490_640.png"></button>
+        <button type="button" ng-show="!audio1.playing" ng-click="mySpecialPlayButton()"><img width="47" height="47" src="../../../assets/video-play-xxl.png"></button>
+        <button type="button" ng-click="audio1.next(true)"><img src="../../../assets/tango_blue_go_next.png"></button>
+      </div>
+
+
+      <br>
+      <span ng-show="audio1.playing">Player status: Playing</span>
+      <span ng-show="!audio1.playing">Player status: Paused</span>
+      <div ng-bind="audio1.currentTrack"></div>
+      <span>/</span>
+      <span ng-bind="audio1.tracks"></span>
+      <span ng-show="audio1.playing">Songs</span><br>
+
+      <div ng-bind="playlist1[audio1.currentTrack-1].name" ng-class="songname"></div>
+      <div ng-if="false">
+        Volume :  <md-slider flex min="0" max="100" ng-model="volumelevel" (change)="myCallbackFunction($event.value)">
+                  </md-slider>
+                  <div ng-bind="volumelevel"></div>
+      </div>
+
+      <br>
+      <br>
+      <br>
+      <div>
+          Download Music:
+          <select ng-model="selectedQuality" ng-options="x for x in names"></select>
+          <button type="button" ng-click="ConvertDownload()">Download</button>
+      </div>
+      <div ng-class="mdcardplaylist">
+        <md-card>
+          <md-card-content ng-class="mdcardcontentplaylist" ng-repeat="x in playlist1" ng-click="audio1.playPause($index)">
+            <span ng-bind="x.name" ng-class="spanclass"></span>
+          </md-card-content>
+        </md-card>
+
+      </div>
+
+
+
+    </div>
+  </div>
+  </md-card-content>
+</md-card>
+</div-->
+
+
+

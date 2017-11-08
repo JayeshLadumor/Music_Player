@@ -1,0 +1,26 @@
+<div>
+  <md-menu class="menuclass" #menu="mdMenu">
+    <button md-menu-item>Item 1</button>
+    <button md-menu-item>Item 2</button>
+  </md-menu>
+</div>
+<div class="addmusicbox">
+  <div>
+    <div class="inner1">
+
+      <button md-button class="md-accent" ng-show="true" ng-click="Add_Music()">ADD MUSIC</button>
+      <button md-button class="md-accent" ng-click="Add_Music()">DELETE MUSIC </button>
+      <button md-button class="md-accent" ng-click="Add_Music()">MODIFY SONG DETAILS</button>
+      <button md-button class="md-accent" (click)="Add_User_Details()">USER DETAILS</button>
+    </div>
+    <div>
+      <button md-button class="md-accent" (click)="Add_Image_To_Database()">Click To Upload Image in Database</button>
+    </div>
+  </div>
+  <!--div fileDrop [ngClass]="{'file-is-over':fileIsOver}" [options]="options" (fileover)="fileover($event)" (onFileDrop)="onFileDrop($event)">
+    Drop File Here..
+  </div-->
+</div>
+
+
+

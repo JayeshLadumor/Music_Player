@@ -1,9 +1,9 @@
-.contacthighlight {
-  border:2px;
-  border-radius: 3px;
-  padding: 7px;
-  background-color: #dddddd;
-  color: black;
-  width: 400px;
-  height: 80px;
+
+.mdclass {
+  height: 150px;
+  width:400px;
+}
+.imagecontent,.songdetails {
+  float: left;
+  padding-left: 10px;
 }

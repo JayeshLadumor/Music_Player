@@ -1,24 +1,26 @@
-<nav class="navbar navbar-default">
-  <div class="container">
-
-    <div id="navbar" class="collapse navbar-collapse">
-        <ul class="nav navbar-nav">
-          <li *ngIf="!authService.loggedIn()" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}"><a href="#">Home</a> </li>
-          <li *ngIf="!authService.loggedIn()" [routerLinkActive]="['active']"><a href="#about">About</a> </li>
-          <li *ngIf="!authService.loggedIn()" [routerLinkActive]="['active']"><a [routerLink]="['/contact']">Contact</a> </li>
+<nav>
+  <div>
+      <div *ngIf="!authService.loggedIn()">
+        <ul class="uclass">
+          <li  [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}"><a href="#">Home</a> </li>
+          <li  [routerLinkActive]="['active']"><a href="#about">About</a> </li>
+          <li  [routerLinkActive]="['active']"><a [routerLink]="['/contact']">Contact</a> </li>
+          <li class="Title">Online Music Streaming</li>
+          <li style="float:right" [routerLinkActive]="['active']"><a [routerLink]="['/login']">Login</a> </li>
+          <li style="float:right"><a [routerLink]="['/register']">Register</a> </li>
         </ul>
 
-      <!--<h3>Online Music Streaming</h3>-->
-      <ul class="nav navbar-nav navbar-right">
-        <li *ngIf="!authService.loggedIn()" [routerLinkActive]="['active']"><a [routerLink]="['/login']">Login</a> </li>
-        <li *ngIf="!authService.loggedIn()"><a [routerLink]="['/register']">Register</a> </li>
-      </ul>
-    </div>
-    <div class="title" *ngIf="authService.loggedIn()">
-    <h2>Online Music Streaming</h2>
+      </div>
 
-        <button class="btn btn-info button" (click)="Logout()">Logout</button>
-
-    </div>
+      <div *ngIf="authService.loggedIn()">
+        <ul>
+          <li class="Title">Online Music Streaming</li>
+          <li style="float:right"><button class="btn btn-info button" (click)="Logout()">Logout</button></li>
+          <li style="float:right"> <button  class="btn btn-info button" (click)="Profile_Load()">Profile</button></li>
+          <li></li>
+        </ul>
+      </div>
   </div>
 </nav>
+
+
