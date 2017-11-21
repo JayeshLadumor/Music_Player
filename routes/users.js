@@ -5,12 +5,11 @@ const mongoose= require('mongoose');
 const jwt= require('jsonwebtoken');
 const config=require('../config/database');
 const User = require('../models/user');
-const Lame = require("node-lame").Lame;
+
 var emailCheck = require("email-check");
 var fs = require('fs');
 const Images = require('../models/image');
 
-var readable=fs.createReadStream("xyz.mp3");
 router.post('/register',function (req,res) {
   //  res.send('REGISTER');
     const newUser = new User({
@@ -123,43 +122,55 @@ router.post('/convert',function (req,res,next) {
     const quality1=quality.replace('kbps','');
     console.log(quality1);
 
-    /*const decoder = new Lame({
-        "output":"buffer"
-    }).setFile("xyz.mp3");
+    const Lame = require("node-lame").Lame;
 
-    decoder.decode().then(function () {
-        const buffer = decoder.getBuffer();
+    const encoder = new Lame({
+        "output": "xyz.mp3",
+        "bitrate": 192
+    }).setFile(fs.readFileSync("bird.wav"));
+
+    encoder.encode()
+        .then(function()  {
+        // Encoding finished
+        console.log("Encoding finished");
     })
-        .catch(function (error) {
-           console.log(error);
-        });
-*/
+    .catch(function(error) {
+        // Something went wrong
+        console.log("Something went wrong");
+    });
+
 });
 
-router.post('/upload',function (req,res,next) {
 
-    const newImages = new Images({
+router.post('/uploadImage',function (req,res,next) {
+
+   const newImages = new Images({
+            username:req.body.name,
             data:req.body.path,
-            Type:req.body.type,
-            username:req.body.username
-            }
-    );
+            Type:req.body.type
+     });
 
-    console.log("In users.js");
-    newImages.data = fs.readFileSync('FrontEnd/'+newImages.data);
-    console.log("In users.js File");
-   /*
-   newImages.save(function (err,a) {
-        if(err) throw err;
-        console.log("Image Saved to Database");
-        */
-        const query = {username:newImages.username};
-        Images.findOne(query,function (err,doc) {
-            if(err) return err;
-            res.contentType(doc.Type);
-            res.json(doc);
-        });
-   //});
+     console.log("In users.js");
+     newImages.data = fs.readFileSync('FrontEnd/'+newImages.data);
+
+     newImages.save(function (err,a) {
+         if (err) throw err;
+         console.log("Image Saved to Database");
+     });
+
 });
+
+
+router.get('/getuploadImage/:username',function (req,res,next) {
+    Images.findOne({},function (err,image) {
+        if(err) return next(err);
+        console.log(image.data);
+        res.contentType(image.Type);
+        res.send(image.data);
+    });
+});
+
+
+
 module.exports = router;
 

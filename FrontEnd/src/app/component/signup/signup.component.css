@@ -5,7 +5,7 @@
   margin: 5px;
 }
 .register_form label {
-  color: lightcoral;
+  color: silver;
   margin-left: 10px;
 }
 .register_form input {
@@ -29,4 +29,11 @@
   width: auto;
   background-color: #00c2d6;
   color: lightgrey;
+}
+.page-header {
+  color:silver;
+}
+.register {
+  margin-left: 10px;
+  margin-top:10px;
 }

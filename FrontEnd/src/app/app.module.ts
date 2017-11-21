@@ -11,6 +11,7 @@ import {MdCardModule} from '@angular2-material/card';
 import {MdMenuModule} from '@angular2-material/menu';
 import {MdButtonModule} from '@angular2-material/button';
 import {MdSliderModule} from '@angular2-material/slider';
+import {MdGridListModule} from '@angular2-material/grid-list';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './component/navbar/navbar.component';
@@ -56,9 +57,13 @@ const appRoutes: Routes =[
     MdCardModule,
     MdMenuModule,
     MdButtonModule,
-    MdSliderModule
+    MdSliderModule,
+    MdGridListModule
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+
+}
+

@@ -73,16 +73,29 @@ export class AuthService {
   }
 
 
-
   ConvertDownloadSong() {
         console.log("In Authenticate Service");
+    let headers = new Headers();
+    headers.append('Content-Type','application/json');
   }
 
   AddImage(imageobj) {
     let headers = new Headers();
     headers.append('Content-Type','application/json');
     console.log(imageobj);
-    return this.http.post('http://localhost:3000/users/upload',imageobj,{headers: headers})
+    return this.http.post('http://localhost:3000/musics/uploadMusic',imageobj,{headers: headers})
+      .map(res => res.json());
+  }
+
+  getImage()
+  {
+    const headers = new Headers();
+    this.loadToken();
+    headers.append('Authorization', this.authToken);
+    headers.append('Content-Type', 'application/json');
+    return this.http.get('http://localhost:3000/users/getupload', {headers: headers})
       .map(res => res.json());
   }
 }
+
+

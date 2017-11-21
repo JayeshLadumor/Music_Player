@@ -6,9 +6,9 @@ const bcrypt= require('bcryptjs');
 const config= require('../config/database');
 
 var imageschema = new mongoose.Schema({
+    username:String,
     data: Buffer,
-    Type: String,
-    username:String
+    Type: String
 });
 
 const Images = module.exports = mongoose.model('Images',imageschema);

@@ -9,8 +9,10 @@
   },
   "dependencies": {
     "@material-git/slider": "^2.0.0-git.20160919",
+    "@types/node-lame": "git://github.com/jankarres/types-node-lame.git",
     "bcryptjs": "*",
     "body-parser": "*",
+    "connect-multiparty": "^2.1.0",
     "cors": "*",
     "email-check": "^1.1.0",
     "email-existence": "^0.1.5",

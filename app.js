@@ -15,7 +15,7 @@ mongoose.connection.on('connected',function () {
 
 const app = express();
 const users = require('./routes/users');
-
+const musics = require('./routes/musics');
 // Port Number
 const port= 3000;
 
@@ -35,7 +35,7 @@ app.use(passport.session());
 require('./config/passport')(passport);
 
 app.use('/users',users);
-
+app.use('/musics',musics);
 // Index Route
 app.get('/',function (req,res) {
   res.send("Invalid End Point");

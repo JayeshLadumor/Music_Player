@@ -1,26 +1,90 @@
-<div>
-  <md-menu class="menuclass" #menu="mdMenu">
-    <button md-menu-item>Item 1</button>
-    <button md-menu-item>Item 2</button>
-  </md-menu>
-</div>
-<div class="addmusicbox">
-  <div>
-    <div class="inner1">
+<div ng-controller="MyCtrl">
 
-      <button md-button class="md-accent" ng-show="true" ng-click="Add_Music()">ADD MUSIC</button>
-      <button md-button class="md-accent" ng-click="Add_Music()">DELETE MUSIC </button>
-      <button md-button class="md-accent" ng-click="Add_Music()">MODIFY SONG DETAILS</button>
-      <button md-button class="md-accent" (click)="Add_User_Details()">USER DETAILS</button>
+    <div class="addmusicbox">
+       <div class="inner1">
+          <button md-button class="md-accent" ng-click="Add_Music_To_Database()" ng-class="(Add_Music==true)?'tab_visible':'tab_no_visible'">ADD MUSIC</button>
+          <button md-button class="md-accent" ng-click="Delete_Music_To_Database()" ng-class="(Delete_Music==true)?'tab_visible':'tab_no_visible'">DELETE MUSIC </button>
+          <button md-button class="md-accent" ng-click="Modify_Music_To_Database()" ng-class="(Modify_Music==true)?'tab_visible':'tab_no_visible'">MODIFY SONG DETAILS</button>
+          <button md-button class="md-accent" ng-click="User_Detail_Show()" ng-class="(User_Details==true)?'tab_visible':'tab_no_visible'">USER DETAILS</button>
+       </div>
+
+      <div ng-show="Add_Music">
+        <form name="musicuploadform" class="musicuploadform">
+          <fieldset>
+            <select ng-model="musicoralbum" ng-options="x for x in names"></select>
+
+            <input type="text" class="btn-default" name="Moviename" ng-model="moviename" size="31" required>
+            <i ng-show="musicuploadform.Moviename.$error.required" class="divclass">*required</i>
+            <br>
+
+            <label class="labelclass">Song Name</label>
+            <input type="text" name="Songname" ng-model="songname" required>
+            <i ng-show="musicuploadform.Songname.$error.required" class="divclass">*required</i>
+            <br>
+
+            <label class="labelclass">Artist Name</label>
+            <input type="text" name="Artistname" ng-model="artistname">
+            <i ng-show="musicuploadform.Artistname.$error.required" class="divclass">*required</i>
+            <br>
+
+            <input type="file" ngf-select ng-model="musicFile" name="file"
+                   accept="audio/mpeg" ngf-max-size="16MB" required ngf-model-invalid="errorFile">
+            <i ng-show="musicuploadform.file.$error.required" class="divclass">*required</i>
+            <br>
+
+            <button ng-disabled="!musicuploadform.$valid" class="btn btn-primary btn-md" ng-click="uploadPic(musicFile)">UPLOAD FILE</button>
+          </fieldset>
+        </form>
+      </div>
+
+      <div ng-show="Delete_Music">
+        <fieldset class="fieldset">
+        <label>Select Movie or Album</label>
+        <select ng-model="movieoralbumname" ng-options="x for x in arrayofmoviename"></select>
+        <br>
+        <label>Select Song Name</label>
+        <select ng-model="songname" ng-options="x for x in arrayofsongname"></select>
+        <br>
+          <button type="button" class="btn-success">Delete</button>
+        </fieldset>
+      </div>
+
+      <div ng-show="Modify_Music">
+        Modify Music
+      </div>
+
+      <div ng-show="User_Details">
+        User Details
+      </div>
+
     </div>
-    <div>
-      <button md-button class="md-accent" (click)="Add_Image_To_Database()">Click To Upload Image in Database</button>
-    </div>
-  </div>
-  <!--div fileDrop [ngClass]="{'file-is-over':fileIsOver}" [options]="options" (fileover)="fileover($event)" (onFileDrop)="onFileDrop($event)">
-    Drop File Here..
-  </div-->
 </div>
 
+<!--div ng-controller="MyCtrl">
+<form name="myForm">
+  <fieldset>
+    <legend>Upload on form submit</legend>
+    Username:
+    <input type="text" name="userName" ng-model="username" size="31" required>
+    <i ng-show="myForm.userName.$error.required">*required</i>
+    <br>Photo:
+    <input type="file" ngf-select ng-model="picFile" name="file"
+           accept="image/*" ngf-max-size="2MB" required
+           ngf-model-invalid="errorFile">
+    <i ng-show="myForm.file.$error.required">*required</i><br>
 
-
+    <img ng-show="myForm.file.$valid" ngf-thumbnail="picFile" class="thumb">
+    <button ng-click="picFile = null" ng-show="picFile">Remove</button>
+    <br>
+    <button ng-disabled="!myForm.$valid"
+            ng-click="uploadPic(picFile)">Submit</button>
+    <!--span class="progress" ng-show="picFile.progress >= 0">
+        <div style="width:{{picFile.progress}}%"
+             ng-bind="picFile.progress + '%'"></div>
+      </span>
+    <span ng-show="picFile.result">Upload Successful</span>
+    <span class="err" ng-show="errorMsg">{{errorMsg}}</span>
+  </fieldset>
+  <br>
+</form>
+</div-->

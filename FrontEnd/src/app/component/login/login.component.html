@@ -1,5 +1,5 @@
-<h2 class="page-header">Login</h2>
-<div ngClass="login_form">
+  <h2 class="page-header">Login</h2>
+  <div ngClass="login_form">
         <form [formGroup]="loginForm" (submit)="onLoginSubmit()">
 
             <label>Username</label><br>
@@ -13,6 +13,6 @@
             <button type="submit" class="btn btn-info"[ngClass]="{submit_valid: loginForm.valid, submit_invalid: !loginForm.valid}" [disabled]="!loginForm.valid">LOGIN</button>
         </form>
 
-        <a [routerLink]="['/forget']">Forget Password?</a>
-          <a [routerLink]="['/register']">New User?</a>
-</div>
+        <a class="link" [routerLink]="['/forget']">Forget Password?</a>
+        <a class="link" [routerLink]="['/register']">New User?</a>
+  </div>

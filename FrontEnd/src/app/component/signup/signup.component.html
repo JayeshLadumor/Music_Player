@@ -1,29 +1,30 @@
-<h2 class="page-header"> Register</h2>
-<div class="register_form">
-  <form [formGroup]="registerform" (ngSubmit)="onRegisterSubmit()">
+  <h2 class="page-header"> Register</h2>
+
+  <div class="register_form">
+    <form [formGroup]="registerform" (ngSubmit)="onRegisterSubmit()">
 
 
-    <label class="xyz">Name</label><br>
-    <input type="text" formControlName="name" autofocus><br>
-    <span *ngIf="!registerform.get('name').valid && registerform.get('name').touched" class="errormsg">Please enter a valid name!<br></span>
+        <label class="xyz">Name</label><br>
+        <input type="text" formControlName="name" autofocus><br>
+        <span *ngIf="!registerform.get('name').valid && registerform.get('name').touched" class="errormsg">Please enter a valid name!<br></span>
 
-    <label>Username</label><br>
-    <input type="text" formControlName="username" onblur="if(isSpacesOnly(this)){alert('unacceptable ')}"><br>
-    <span *ngIf="!registerform.get('name').valid && registerform.get('username').touched" class="errormsg">Please enter a valid username!<br></span>
+        <label>Username</label><br>
+        <input type="text" formControlName="username" onblur="if(isSpacesOnly(this)){alert('unacceptable ')}"><br>
+        <span *ngIf="!registerform.get('name').valid && registerform.get('username').touched" class="errormsg">Please enter a valid username!<br></span>
 
-    <label>Email</label><br>
-    <input type="text" formControlName="email" ><br>
-    <span *ngIf="!registerform.get('name').valid && registerform.get('email').touched" class="errormsg">Please enter a valid Email Id!<br></span>
+        <label>Email</label><br>
+        <input type="text" formControlName="email" ><br>
+        <span *ngIf="!registerform.get('name').valid && registerform.get('email').touched" class="errormsg">Please enter a valid Email Id!<br></span>
 
-    <label>Password</label><br>
-    <input type="password" formControlName="password"><br>
-    <span *ngIf="!registerform.get('name').valid && registerform.get('password').touched" class="errormsg">Please enter a valid password!<br></span>
+        <label>Password</label><br>
+        <input type="password" formControlName="password"><br>
+        <span *ngIf="!registerform.get('name').valid && registerform.get('password').touched" class="errormsg">Please enter a valid password!<br></span>
 
-    <label>Mobile no.</label><br>
-    <input type="text" formControlName="mobile"><br>
-    <span *ngIf="!registerform.get('name').valid && registerform.get('mobile').touched" class="errormsg">Please enter a valid mobile no!<br></span>
+        <label>Mobile no.</label><br>
+        <input type="text" formControlName="mobile"><br>
+        <span *ngIf="!registerform.get('name').valid && registerform.get('mobile').touched" class="errormsg">Please enter a valid mobile no!<br></span>
 
-    <button type="submit" class="btn btn-info" [ngClass]="{submit_valid: registerform.valid, submit_invalid: !registerform.valid}" [disabled]="!registerform.valid">Register</button>
-  </form>
-</div>
+        <button type="submit" class="btn btn-info register" [ngClass]="{submit_valid: registerform.valid, submit_invalid: !registerform.valid}" [disabled]="!registerform.valid">Register</button>
+     </form>
+  </div>
 

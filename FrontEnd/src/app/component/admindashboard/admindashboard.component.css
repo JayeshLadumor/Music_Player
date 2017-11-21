@@ -14,3 +14,26 @@ div button {
 .inner2 {
   border: 10px;
 }
+.tab_visible {
+  background-color: #5bc0de;
+}
+.tab_no_visible {
+  background-color: transparent;
+}
+.musicuploadform {
+  margin-left: 50px;
+  margin-top: 50px;
+}
+.divclass {
+  color: red;
+}
+.labelclass {
+color:black;
+}
+.addmusicbox {
+  margin-top: 20px;
+}
+.fieldset {
+  margin-left: 40px;
+  margin-top:40px;
+}

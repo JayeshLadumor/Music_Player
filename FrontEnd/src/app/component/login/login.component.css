@@ -45,6 +45,14 @@
   text-decoration: underline;
   cursor: pointer;
 }
+.login_form label {
+  color:silver;
+}
 .page-header {
   margin-top: 59px;
+  color:silver;
+  margin-left: 40px;
+}
+.link {
+  color:cornsilk;
 }

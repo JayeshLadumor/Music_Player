@@ -13,3 +13,7 @@
   float:right;
   padding: 2px;
 }
+  body {
+    overflow:scroll;
+    background-color:#1a1a1a;
+}
