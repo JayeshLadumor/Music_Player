@@ -48,12 +48,7 @@ router.post('/register',function (req,res) {
                         });
 
                     })
-                    /*var kickbox = require('kickbox').client('live_ab293fc02a9156a88ac18dbeb8ce5e64d77d9508139930e9a181abcfa0d6c2e4').kickbox();
-                    console.log(newUser.Email_Id);
-                    kickbox.verify(newUser.Email_Id, function (err, response) {
-                        // Let's see some results
-                        console.log(response.body);
-                    });*/
+            
 
 
                 })
@@ -166,15 +161,15 @@ router.post('/forget',function(req,res,next)  {
             host: 'smtp.gmail.com',
             port: 587,
             auth: {
-                user: 'jayesh.p.ladumor@gmail.com',
-                pass: 'Jayesh@1997'
+                user: 'Your Email ID',
+                pass: 'Password of MailID'
             },
             tls: {rejectUnauthorized: false},
             debug:true
         });
 
         var data = {
-            from: 'jayesh.p.ladumor@gmail.com',
+            from: 'Your Email ID',
             to: user.Email_Id,
             subject: 'Password Changed', text: 'Hii! '+user.Name+'\n\n\nEmail Id :'+user.Email_Id+'\nPassword='+Password+'\n\nPlease Be Secure..\n\nThank You!'
         };
