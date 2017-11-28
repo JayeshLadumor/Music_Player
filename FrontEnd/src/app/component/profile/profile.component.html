@@ -1,16 +1,24 @@
+<div ng-controller="ProCtrl">
+    <form name="musicuploadform" class="profileuploadform">
+      <fieldset>
+        <input type="file" ngf-select ng-model="imageFile" name="file" accept="image/*" ngf-max-size="16MB">
+        <button class="btn btn-primary" ng-click="uploadPic(imageFile)">UPLOAD Image</button>
+      </fieldset>
+    </form>
 
-<div ng-app="myApp1">
-  <div ng-controller="controller1">
-    <img src="" alt="Some Image" height="100" width="100"><br>
-    <input type="file" class="btn btn-default" ng-model="file" accept="image/*"><br>
-    <button ng-click="clicked()">CLick</button>
-    <button ng-click="ChangeProfilePicture()" class="btn btn-default">Change Profile</button>
-  </div>
+    <div class="outerdiv">
+      Role : <br>
+      Name :  <br>
+      Username : <br>
+      Email Id : <br>
+    </div>
 </div>
-  <div class="outerdiv">
-    Role : {{usertype}}<br>
-    Name :{{name}}<br>
-    Username : {{username}}<br>
-    Email Id :{{email}}<br>
-  </div>
+
+
+
+
+
+
+
+
 

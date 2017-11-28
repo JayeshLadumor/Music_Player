@@ -1,19 +1,26 @@
-.page-header {
-  margin-top: 40px;
+.register_form {
+  align-content: center;
 }
+
+.errormsg {
+  color: red;
+}
+
 .register_form {
   margin: 5px;
 }
-.register_form label {
-  color: silver;
-  margin-left: 10px;
+.register_form form{
+  margin: 40px;
+  font-family: sans-serif;
+  font-size: 12px;
 }
 .register_form input {
-  margin-left: 10px;
   border-radius: 3px;
-  width: 300px;
+  border: 1px solid grey;
+  padding: 5px;
+  width: 400px;
+  background-color: lightgrey;
 }
-
 .register_form .submit_valid {
   border-radius: 3px;
   border: 1px solid grey;
@@ -30,10 +37,22 @@
   background-color: #00c2d6;
   color: lightgrey;
 }
-.page-header {
+.register_form p {
+  margin: 0 0 0 40px;
+  font-family: sans-serif;
+  font-size: 12px;
+  color: #3a9cd6;
+  text-decoration: underline;
+  cursor: pointer;
+}
+.register_form label {
   color:silver;
 }
-.register {
-  margin-left: 10px;
-  margin-top:10px;
+.page-header {
+  margin-top: 59px;
+  color:silver;
+  margin-left: 40px;
+}
+.link {
+  color:cornsilk;
 }

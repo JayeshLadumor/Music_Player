@@ -1,60 +1,67 @@
-<div ng-controller="MyCtrl">
+<div ng-controller="MyCtrl" data-ng-init="init()">
 
     <div class="addmusicbox">
        <div class="inner1">
           <button md-button class="md-accent" ng-click="Add_Music_To_Database()" ng-class="(Add_Music==true)?'tab_visible':'tab_no_visible'">ADD MUSIC</button>
           <button md-button class="md-accent" ng-click="Delete_Music_To_Database()" ng-class="(Delete_Music==true)?'tab_visible':'tab_no_visible'">DELETE MUSIC </button>
-          <button md-button class="md-accent" ng-click="Modify_Music_To_Database()" ng-class="(Modify_Music==true)?'tab_visible':'tab_no_visible'">MODIFY SONG DETAILS</button>
           <button md-button class="md-accent" ng-click="User_Detail_Show()" ng-class="(User_Details==true)?'tab_visible':'tab_no_visible'">USER DETAILS</button>
        </div>
 
       <div ng-show="Add_Music">
-        <form name="musicuploadform" class="musicuploadform">
-          <fieldset>
-            <select ng-model="musicoralbum" ng-options="x for x in names"></select>
+                <form name="musicuploadform" class="musicuploadform">
+                  <fieldset>
+                    <select ng-model="musicoralbum" ng-options="x for x in names"></select>
 
-            <input type="text" class="btn-default" name="Moviename" ng-model="moviename" size="31" required>
-            <i ng-show="musicuploadform.Moviename.$error.required" class="divclass">*required</i>
-            <br>
+                    <input type="text" class="btn-default" name="Moviename" ng-model="moviename" size="31" required>
+                    <i ng-show="musicuploadform.Moviename.$error.required" class="divclass">*required</i>
+                    <br>
 
-            <label class="labelclass">Song Name</label>
-            <input type="text" name="Songname" ng-model="songname" required>
-            <i ng-show="musicuploadform.Songname.$error.required" class="divclass">*required</i>
-            <br>
+                    <label class="labelclass">Song Name</label>
+                    <input type="text" name="Songname" ng-model="songname" required>
+                    <i ng-show="musicuploadform.Songname.$error.required" class="divclass">*required</i>
+                    <br>
 
-            <label class="labelclass">Artist Name</label>
-            <input type="text" name="Artistname" ng-model="artistname">
-            <i ng-show="musicuploadform.Artistname.$error.required" class="divclass">*required</i>
-            <br>
+                    <label class="labelclass">Artist Name</label>
+                    <input type="text" name="Artistname" ng-model="artistname">
+                    <i ng-show="musicuploadform.Artistname.$error.required" class="divclass">*required</i>
+                    <br>
 
-            <input type="file" ngf-select ng-model="musicFile" name="file"
-                   accept="audio/mpeg" ngf-max-size="16MB" required ngf-model-invalid="errorFile">
-            <i ng-show="musicuploadform.file.$error.required" class="divclass">*required</i>
-            <br>
+                    <label>Select Music File</label>
+                    <input type="file" ngf-select ng-model="musicFile" name="file"
+                           accept="audio/mpeg" ngf-max-size="16MB" required ngf-model-invalid="errorFile">
+                    <i ng-show="musicuploadform.file.$error.required" class="divclass">*required</i>
+                    <br>
 
-            <button ng-disabled="!musicuploadform.$valid" class="btn btn-primary btn-md" ng-click="uploadPic(musicFile)">UPLOAD FILE</button>
-          </fieldset>
-        </form>
+                    <label>Select Image</label>
+                    <input type="file" ngf-select ng-model="imageFile" name="file1"
+                           accept="image/*" ngf-max-size="16MB" required ngf-model-invalid="errorFile">
+                    <i ng-show="musicuploadform.Imagefile.$error.required" class="divclass">*required</i>
+                    <br>
+
+                    <button ng-disabled="!musicuploadform.$valid" class="btn btn-primary" ng-click="uploadPic(musicFile,imageFile)">UPLOAD FILE</button>
+                  </fieldset>
+                </form>
+
+                <label ng-show="success" style="margin-left: 20px">Successfully Upload</label>
+                <label ng-show="!success1" style="margin-left: 20px">Unfortunately File Is Not Uploaded! Try Again</label>
+                <label ng-show="success2" style="margin-left: 20px">Uploading Music File... ... ..</label>
       </div>
 
       <div ng-show="Delete_Music">
-        <fieldset class="fieldset">
-        <label>Select Movie or Album</label>
-        <select ng-model="movieoralbumname" ng-options="x for x in arrayofmoviename"></select>
-        <br>
-        <label>Select Song Name</label>
-        <select ng-model="songname" ng-options="x for x in arrayofsongname"></select>
-        <br>
-          <button type="button" class="btn-success">Delete</button>
-        </fieldset>
-      </div>
-
-      <div ng-show="Modify_Music">
-        Modify Music
+                <fieldset class="fieldset">
+                <label>Select Movie or Album</label>
+                <select ng-model="movieselect" ng-options="x for x in arrayofmoviename" ng-change="movieload()"></select>
+                <br>
+                <label>Select Song Name</label>
+                <select ng-model="songselect" ng-options="x for x in arrayofsongname"></select>
+                <br>
+                  <button type="button" class="btn-danger" ng-click="Delete_Song()">Delete</button>
+                </fieldset>
       </div>
 
       <div ng-show="User_Details">
         User Details
+        <!--<img src="https://{{link}}">-->
       </div>
 
     </div>

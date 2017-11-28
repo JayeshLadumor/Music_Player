@@ -7,23 +7,34 @@ const config= require('../config/database');
 
 var musicschema = new mongoose.Schema({
     Albumname: String,
-    Songname: {
-        type: String,
-        required: true
-    },
     Moviename: String,
-    data: {
-        type: Buffer,
-        required: true
-    },
-    Type: {
-        type: String,
-        required: true
-    },
-    songpath: {
-        type: String,
-        required: true
-    }
+    Image:{type:Buffer, required:true},
+    Imagepath:{type: String, required: true},
+    ImageType:{type: String, required: true},
+    Data : [{
+        Songname: {
+            type: String,
+            required: true
+        },
+        data: {
+            type: Buffer,
+            required: true
+        },
+        Type: {
+            type: String,
+            required: true
+        },
+        songpath: {
+            type: String,
+            required: true
+        },
+        Artist:[
+            {
+                type: String,
+                required:true
+            }
+        ]
+    }]
 });
 
 const Music = module.exports = mongoose.model('Musics',musicschema);

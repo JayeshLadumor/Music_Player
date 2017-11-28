@@ -12,60 +12,42 @@ declare const angular: any;
 })
 export class ProfileComponent implements OnInit {
 
-
-  user: object;
-  usertype:String;
-  email:String;
-  username:String;
-  username1:String;
-  name:String;
-
-  constructor(private authService:AuthService,
-              private router:Router,
-              private flashMessage:FlashMessagesService) { }
+  constructor(private authService: AuthService,
+              private router: Router,
+              private flashMessage: FlashMessagesService) {
+  }
 
   ngOnInit() {
-    this.usertype=window.sessionStorage.getItem('Role');
-    this.email=window.sessionStorage.getItem('EmailId');
-    this.username=window.sessionStorage.getItem('Username');
-    this.name=window.sessionStorage.getItem('name');
   }
 
-
-  myApp1 = angular.module('myApp1', [])
-    .controller('controller1',function ($scope) {
-      $scope.ChangeProfilePicture = function () {
-        console.log('Clicked');
-      }
-
-      $scope.clicked = function () {
-        console.log('clicked');
-      }
-    });
-
-  ChangeProfilePicture(){
-    console.log('Change Pro Picture');
-  }
-  Add_Image_To_Database() {
-    this.username1=window.sessionStorage.getItem('Username');
-    const user={
-      name:'xyz.png',
-      path:'src/assets/xyz.png',
-      type:'image/png'
-    };
-
-    this.authService.AddImage(user).subscribe(retdata=>{
-      console.log(retdata.data);
-      console.log(retdata);
-    });
-  }
-
-  GetImage()
+  uploadPic(x)
   {
-      this.authService.getImage().subscribe(retdata=>{
-      console.log(retdata);
-    });
+    console.log('clicked');
   }
+
+  myApp = angular.module('myApp', ['ngFileUpload'])
+    .controller('ProCtrl',['$scope','$http','Upload','$timeout',function ($scope,Upload,$http,$timeout) {
+
+      $scope.uploadPic = function (file) {
+        console.log('clicked');
+        file.upload = Upload.upload({
+          url: 'http://localhost:3000/users/uploadImage',
+          data: {
+            file: file,
+            username:window.sessionStorage.getItem('Username')
+          }
+        });
+
+        file.upload.then(function (response) {
+          if (response.data.success) {
+            $scope.success=response.data.success;
+          }
+          else {
+            $scope.success1=response.data.success;
+          }
+        });
+      }
+    }]);
 
 }
 

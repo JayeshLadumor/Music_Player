@@ -7,15 +7,6 @@
 background-color: #dddddd;
 }
 
-.gridtile {
-
-}
-
-md-grid-tile {
-  align-items: initial;
-  width: 100%;
-}
-
 .maincard {
   background-color:#07101e;
   box-shadow: -5px 5px 5px 5px red;
@@ -75,10 +66,9 @@ md-grid-tile {
   -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
 }
 .musicspanclass {
-  margin-top:70px;
-  padding-left: 50px;
-  font-weight: 900;
   color: red;
+  font-size: smaller;
+  margin-left: 0px;
 }
 .musicspanclass:hover {
   color:blue;
@@ -87,10 +77,9 @@ md-grid-tile {
   color:blue;
 }
 .nomusicspanclass  {
-  margin-top:70px;
-  padding-left: 50px;
-  font-weight: 900;
+  margin-left: 0px;
   color: #132542;
+  font-size: smaller;
 }
 .imagemdcard {
   padding: 4px 4px 4px;
@@ -109,7 +98,6 @@ md-grid-tile {
   width:47px;
   height:47px;
   border:0px;
-
 }
 
 .logoclass {
@@ -119,4 +107,36 @@ md-grid-tile {
 }
 .logoclass:hover {
   box-shadow:-2px 2px 50px 5px red;
+}
+
+.mdgrid {
+  width:100%;
+}
+
+.example-card {
+  display: inline-block;
+  width: 30%;
+  margin: 20px;
+  vertical-align: top;
+  cursor: pointer;
+}
+
+.repeatclass {
+  width:1000px;
+}
+
+.mdcard1 {
+  width:200px;
+  height:auto;
+  display: inline-block;
+}
+md-card-content {
+  margin:0;
+}
+
+.notfound {
+  color:white;
+}
+.search {
+  color: black;
 }

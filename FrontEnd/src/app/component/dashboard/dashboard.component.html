@@ -1,5 +1,4 @@
-<div>
-  <div ng-controller="mycontroller" id="outer">
+<div ng-controller="mycontroller" id="outer" data-ng-init="init()">
     <md-card class="maincard">
       <md-card-content>
 
@@ -29,24 +28,24 @@
         <span class="playstatus" ng-show="audio1.playing">/</span>
         <span class="playstatus" ng-bind="audio1.formatDuration" ng-show="audio1.playing"></span>
 
-        Volume : <md-slider (input)="myCallbackFunction($event)">
-      </md-slider>
+        Volume : <!--<md-slider ng-model="newvolume" ng-mouseup="audio1.setVolume(newvolume)"></md-slider>
+-->
 
-        <!--md-slider min="0" max="1" (change)="audio1.setVolume($event.value)">
-        </md-slider-->
         <br>
         <br>
 
         <div>
           <div class="qualityselect">
-            Select Quality :
-            <select ng-model="selectedQuality" ng-options="x for x in names" class="btn btn-default"></select>
-            <button type="button" ng-click="ConvertDownload()" class="btn btn-default">Download</button>
+           <!-- Select Quality :
+            <select ng-model="selectedQuality" ng-options="x for x in names" class="btn btn-default"></select>-->
+            <button type="button" ng-click="Download(audio1.currentTrack-1)" class="btn btn-default">Download</button>
           </div>
 
           <div class="searchdiv">
             Search By:
-            <select ng-model="selectsearch" ng-options="x for x in searchtypes" class="btn btn-default"></select>
+            <select ng-model="selectsearchitem" ng-options="x for x in searchtypes" class="search btn btn-default"></select>
+            <input type="text" class="search" ng-model="searchtext">
+            <button class="search btn btn-default" ng-click="Search()">Search</button>
           </div>
         </div>
 
@@ -55,25 +54,19 @@
     <br>
     <br>
 
-    <div class="musicdiv">
-      <md-card class="mdcardmusiclist">
-        <md-card-content class="mdcardmusiccontent" ng-repeat="x in playlist1" ng-click="audio1.playPause($index)">
-          <img src="../../../assets/Symbols/f9e239cb9e9b1e110904b747e39b90c9--hollywood-walk-of-fame-free-icon.jpg" width="80" height="80" padding="0" class="imagemdcard"/>
+
+
+    <div ng-if="notfound" class="notfound">
+       No Results Found For : <span ng-bind="searchtext"></span>
+    </div>
+
+      <md-card class="mdcard1" *ngIf="!notfound" ng-repeat="x in playlist1" ng-click="audio1.playPause($index)">
+        <md-card-content>
+          <img md-card-image ng-src="../../assets/Symbols/default.png">
           <span ng-bind="x.name" ng-class="(audio1.currentTrack-1==$index)?'musicspanclass':'nomusicspanclass'"></span>
         </md-card-content>
       </md-card>
-    </div>
-
 
   </div>
 
 
-
-  <!--figure class="imghvr-slide-down">
-    <img src="../../../assets/Symbols/Play.jpg">
-    <figcaption>
-      Hovered
-    </figcaption>
-  </figure-->
-
-</div>

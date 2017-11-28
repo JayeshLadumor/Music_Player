@@ -25,7 +25,12 @@ export class AuthService {
       .map(res => res.json());
   }
 
-
+    sendemail(user) {
+      const headers = new Headers();
+      headers.append('Content-Type', 'application/json');
+      return this.http.post('http://localhost:3000/users/forget', user,{headers: headers})
+        .map(res => res.json());
+    }
   storeUserData(token, user,usertype) {
     window.sessionStorage.setItem('Role',usertype);
     localStorage.setItem('id_token',token);

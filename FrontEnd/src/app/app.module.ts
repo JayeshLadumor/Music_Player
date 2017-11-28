@@ -16,18 +16,19 @@ import {MdGridListModule} from '@angular2-material/grid-list';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './component/navbar/navbar.component';
 import { LoginComponent } from './component/login/login.component';
-import { SignupComponent } from './component/signup/signup.component';
 import { DashboardComponent } from './component/dashboard/dashboard.component';
 import { ProfileComponent } from './component/profile/profile.component';
 import { HomeComponent } from './component/home/home.component';
 import { ContactComponent } from './component/contact/contact.component';
 import { AdmindashboardComponent } from './component/admindashboard/admindashboard.component';
+import {CommonModule} from "@angular/common";
+import { SignupComponent } from './component/signup/signup.component';
 
 
 const appRoutes: Routes =[
   {path:'',component:HomeComponent},
-  {path:'register',component:SignupComponent},
   {path:'login',component:LoginComponent},
+  {path:'register',component:SignupComponent},
   {path:'dashboard',component:DashboardComponent},
   {path:'profile',component:ProfileComponent},
   {path:'contact',component:ContactComponent},
@@ -40,12 +41,12 @@ const appRoutes: Routes =[
     AppComponent,
     NavbarComponent,
     LoginComponent,
-    SignupComponent,
     DashboardComponent,
     ProfileComponent,
     HomeComponent,
     ContactComponent,
-    AdmindashboardComponent
+    AdmindashboardComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,
